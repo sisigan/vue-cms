@@ -23,8 +23,12 @@
 				<span class="mui-tab-label">搜索</span>
 			</router-link>
 		</nav>
-    123
+
     <!-- 中间组件区域 -->
+		<transition>
+			<router-view></router-view>
+		</transition>
+		
   </div>
 </template>
 
@@ -34,14 +38,29 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
   padding-top: 40px;
   padding-bottom: 60px;
+	overflow-x: hidden;
+}
+.v-enter,
+.v-leave-to{
+	opacity: 0;
+}
+.v-enter{
+	transform: translateX(100%)
+}
+.v-leave-to{
+		transform: translateX(-100%);
+		position:absolute;
+}
+
+.v-enter-active,
+.v-leave-active{
+	transition:all 0.5s ease;
 }
 </style>
