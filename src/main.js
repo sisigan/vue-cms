@@ -6,9 +6,18 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
+import moment from 'moment'
+//定义全局的过滤器
+Vue.filter('dateFormat',function(str,pattern="YYYY-MM-DD HH:mm:ss"){
+  return moment(str).format(pattern)
+});
+
 //导入vue-resource
 import vueResource from 'vue-resource'
 Vue.use(vueResource)
+
+Vue.http.options.root = 'http://www.lovegf.cn:8899/'
+Vue.http.options.emulateJSON = true
 
 //导入Mint-ui,并导入了MintUi的所有组件
 import MintUi from 'mint-ui'

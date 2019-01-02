@@ -38,7 +38,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped  lang="less">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

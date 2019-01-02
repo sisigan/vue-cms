@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+
 
 Vue.use(Router)
 
@@ -9,6 +9,8 @@ import tabHome from '../page/tabHome'
 import tabMember from '../page/tabMember'
 import tabShopcar from '../page/tabShopcar'
 import tabSearch from '../page/tabSearch'
+import homeNewList from '../page/homeNewList'
+import homeNewInfo from '../page/homeNewInfo'
 
 export default new Router({
   routes: [
@@ -17,6 +19,8 @@ export default new Router({
     {path: '/member',component: tabMember},
     {path: '/shopcar',component: tabShopcar},
     {path: '/search',component: tabSearch},
+    {path: '/home/newList',component: homeNewList},
+    {path: '/home/newinfo/:id',component: homeNewInfo},
 
   ],
   //覆盖默认的路由高亮的类
