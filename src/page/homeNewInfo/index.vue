@@ -6,14 +6,18 @@
             <span>点击:{{newInfoList.click}}次</span>
         </p>
         <hr>
+        <!-- 内容区域 -->
         <div class="content" v-html="newInfoList.content">
-
         </div>
-
+        <!-- 评论子组件区域 -->
+        <comment-box :id="id"></comment-box> 
     </div>
 </template>
 
 <script>
+//导入 评论子组件
+import comment from '../../components/comment'
+
 import { Toast } from "mint-ui";
 export default{
     data(){
@@ -36,6 +40,9 @@ export default{
     },
     created(){
         this.getNewInfo();
+    },
+    components:{
+        "comment-box":comment
     }
 }
 
