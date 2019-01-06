@@ -15,9 +15,9 @@
 </template>
 
 <script>
-//导入 评论子组件
-import comment from '../../components/comment'
 
+//导入 评论子组件
+import comment from '../../components/comment/'
 import { Toast } from "mint-ui";
 export default{
     data(){
@@ -42,8 +42,9 @@ export default{
         this.getNewInfo();
     },
     components:{
-        "comment-box":comment
-    }
+    "comment-box":comment
+  },
+    
 }
 
 </script>

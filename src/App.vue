@@ -45,6 +45,9 @@ export default {
   padding-top: 40px;
   padding-bottom: 60px;
   overflow-x: hidden;
+  .mint-header{
+    z-index: 99;
+  }
 }
 .v-enter,
 .v-leave-to {

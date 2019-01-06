@@ -10,20 +10,21 @@
           <a
             :class="{'mui-control-item' : true, 'mui-active': index == 0}"
             v-for="(item,index) in allcate"
-            :key="item.id" @click="getphotolistid(item.id)"
+            :key="item.id"
+            @click="getphotolistid(item.id)"
           >{{item.title}}</a>
         </div>
       </div>
     </div>
     <!-- 图片加载区域 -->
     <ul class="Photo_list">
-      <router-link v-for="item in list" :key="item.id"  tag="li" to="#">
+      <router-link v-for="item in list" :key="item.id" tag="li" :to="'/home/photoinfo/'+item.id">
         <img v-lazy="item.img_url">
         <div class="info">
-            <h1 class="info-title">{{item.title}}</h1>
-            <div class="info-body">{{ item.zhaiyao }}</div>
+          <h1 class="info-title">{{item.title}}</h1>
+          <div class="info-body">{{ item.zhaiyao }}</div>
         </div>
-      </router-link >
+      </router-link>
     </ul>
   </div>
 </template>
@@ -35,8 +36,8 @@ import mui from "../../lib/mui/js/mui.min.js";
 export default {
   data() {
     return {
-      allcate: [],//分类数据
-      list:[],//图片数据
+      allcate: [], //分类数据
+      list: [] //图片数据
     };
   },
   methods: {
@@ -48,21 +49,22 @@ export default {
         } else {
           Toast("获取分类列表失败");
         }
+         this.getphotolistid( this.allcate[0].id);
       });
     },
-    getphotolistid(cateid){//根分类ID获取图片列表信息
-    this.$http.get("api/getimages/"+cateid).then(result=>{
+    getphotolistid(cateid) {
+      //根分类ID获取图片列表信息
+      this.$http.get("api/getimages/" + cateid).then(result => {
         if (result.body.status == 0) {
           this.list = result.body.message;
         } else {
           Toast("获取图片失败");
         }
-    })
-    },
+      });
+    }
   },
   created() {
-    this.getallcate();
-    this.getphotolistid(14);
+    this.getallcate(); 
   },
   mounted() {
     //内存中的模板已经挂载到页面后(操作元素)
@@ -75,16 +77,43 @@ export default {
 
 
 <style scoped  lang="less">
-img[lazy=loading] {//懒加载样式
-  width: 40px;
-  height: 300px;
-  margin: auto;
-}
-.homePhotolist{
-    .Photo_list{
-        li{
-            list-style: none;
+.homePhotolist {
+  .Photo_list {
+      margin: 0;
+      padding: 10px;
+      margin-bottom: 0;
+    li {
+        background-color: #ccc;
+      list-style: none;
+      text-align: center;
+      margin-bottom: 10px;
+      box-shadow: 0 0 9px #999;
+      position: relative;
+      img{
+          width: 100%;
+          vertical-align: middle;
+      }
+      img[lazy="loading"] {
+        //懒加载样式
+        width: 40px;
+        height: 300px;
+        margin: auto;
+      }
+      .info{
+        color:#fff;
+        text-align: left;
+        position: absolute;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.4);
+        max-height: 85px;
+        .info-title{
+          font-size: 14px;
         }
+        .info-body{
+          font-size: 13px;
+        }
+      }
     }
+  }
 }
 </style>
