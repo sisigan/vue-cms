@@ -13,6 +13,8 @@ import homeNewList from '../page/homeNewList'
 import homeNewInfo from '../page/homeNewInfo'
 import homePhotolist from '../page/homePhotolist'
 import homePhotoinfo from '../page/homePhotoinfo'
+import homeGoodsList from '../page/homeGoodsList'
+import homeGoodsInfo from '../page/homeGoodsInfo'
 
 export default new Router({
   routes: [
@@ -24,7 +26,9 @@ export default new Router({
     {path: '/home/newList',component: homeNewList},
     {path: '/home/newinfo/:id',component: homeNewInfo},
     {path: '/home/photolist',component: homePhotolist},
-    {path: '/home/photoinfo/:id',component:homePhotoinfo}
+    {path: '/home/photoinfo/:id',component:homePhotoinfo},
+    {path: '/home/goodslist',component:homeGoodsList},
+    {path: '/home/goodsinfo/:id',component:homeGoodsInfo, name:"goodsinfo"},
   ],
   //覆盖默认的路由高亮的类
   linkActiveClass:'mui-active'
