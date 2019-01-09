@@ -15,6 +15,8 @@ import homePhotolist from '../page/homePhotolist'
 import homePhotoinfo from '../page/homePhotoinfo'
 import homeGoodsList from '../page/homeGoodsList'
 import homeGoodsInfo from '../page/homeGoodsInfo'
+import homeGoodsDesc from '../page/homeGoodsDesc'
+import homeGoodsComm from '../page/homeGoodsComm'
 
 export default new Router({
   routes: [
@@ -29,6 +31,8 @@ export default new Router({
     {path: '/home/photoinfo/:id',component:homePhotoinfo},
     {path: '/home/goodslist',component:homeGoodsList},
     {path: '/home/goodsinfo/:id',component:homeGoodsInfo, name:"goodsinfo"},
+    {path: '/home/goodsdesc/:id',component:homeGoodsDesc},
+    {path: '/home/goodscomm/:id',component:homeGoodsComm},
   ],
   //覆盖默认的路由高亮的类
   linkActiveClass:'mui-active'
