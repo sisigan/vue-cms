@@ -107,6 +107,10 @@ export default {
     addCar() {
       //添加到购物车
       this.isball = !this.isball;
+      //拼接出一个要存放到购物车的对象
+      var goodinfo={id:this.id,count:this.buyCount,price:this.goodsinfo.sell_price,selected:true}
+      //调用store中的mutations来将数据放入购物车
+      this.$store.commit("addToCar",goodinfo);
     },
     beforeEnter(el) {
       //开始前的位置,el表示动画的标签

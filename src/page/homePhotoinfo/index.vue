@@ -13,13 +13,11 @@
     <!-- 图片内容区域 -->
     <div class="content" v-html="photoinfos.content"></div>
     <!-- 评论 -->
-    <comment-box :id="id"></comment-box>
+    <cmtbox :id="id"></cmtbox>
   </div>
 </template>
 
 <script>
-
-import comment from "../../components/comment/";
 import { Toast } from "mint-ui";
 export default {
   data() {
@@ -58,9 +56,6 @@ export default {
     this.getPhotoInfo();
     this.getthumbs();
   },
-  components: {
-    "comment-box": comment
-  }
 };
 </script>
 

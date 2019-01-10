@@ -42,6 +42,9 @@ Vue.use(VuePreview)
 import App from './App'
 import router from './router'
 import store from './vuex'
+import comment_box from './components/comment'
+//需要在实例创建之前
+Vue.component('cmtbox', comment_box)
 
 Vue.config.productionTip = false
 
@@ -52,3 +55,4 @@ new Vue({
   store,
   render:c=>c(App),
 })
+

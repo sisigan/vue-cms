@@ -14,7 +14,7 @@
       </router-link>
       <router-link class="mui-tab-item-ll" to="/shopcar">
         <span class="mui-icon mui-icon-extra mui-icon-extra-cart">
-          <span class="mui-badge" id="ball_box">1</span>
+          <span class="mui-badge" id="ball_box">{{$store.getters.getAllCount}}</span>
         </span>
         <span class="mui-tab-label">购物车</span>
       </router-link>
@@ -32,8 +32,10 @@
 </template>
 
 <script>
+
 export default {
-  name: "App"
+  name: "App",
+ 
 };
 </script>
 
