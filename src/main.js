@@ -33,7 +33,7 @@ import 'mint-ui/lib/style.css'
 // Vue.use(Lazyload);
 
 //导入mui的样式
-import './lib/mui/css/mui.min.css'
+import './lib/mui/css/mui.css'
 import './lib/mui/css/icons-extra.css'
 
 import VuePreview from 'vue2-preview'

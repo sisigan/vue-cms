@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <!-- 头部区域 -->
-    <mt-header fixed title="Vue项目"></mt-header>
+    <mt-header fixed title="Vue项目">
+      <span  slot="left" @click="$router.go(-1)" v-show="$route.path !=='/home'">
+        <mt-button icon="back">返回</mt-button>
+      </span>
+    </mt-header>
     <!-- 尾部区域 -->
     <nav class="mui-bar mui-bar-tab">
       <router-link class="mui-tab-item-ll" to="/home">
@@ -14,7 +18,7 @@
       </router-link>
       <router-link class="mui-tab-item-ll" to="/shopcar">
         <span class="mui-icon mui-icon-extra mui-icon-extra-cart">
-          <span class="mui-badge" id="ball_box">{{$store.getters.getAllCount}}</span>
+          <span class="mui-badge" id="ball_box">{{$store.getters.getGoodsCountAnd.count}}</span>
         </span>
         <span class="mui-tab-label">购物车</span>
       </router-link>
@@ -32,10 +36,8 @@
 </template>
 
 <script>
-
 export default {
-  name: "App",
- 
+  name: "App"
 };
 </script>
 
@@ -47,7 +49,7 @@ export default {
   padding-top: 40px;
   padding-bottom: 60px;
   overflow-x: hidden;
-  .mint-header{
+  .mint-header {
     z-index: 99;
   }
 }
@@ -68,7 +70,6 @@ export default {
   transition: all 0.5s ease;
 }
 
-
 .mui-bar-tab .mui-tab-item-ll.mui-active {
   color: #007aff;
 }
@@ -84,16 +85,16 @@ export default {
   color: #929292;
 }
 .mui-bar-tab .mui-tab-item-ll .mui-icon {
-    top: 3px;
-    width: 24px;
-    height: 24px;
-    padding-top: 0;
-    padding-bottom: 0;
+  top: 3px;
+  width: 24px;
+  height: 24px;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 .mui-bar-tab .mui-tab-item-ll .mui-icon ~ .mui-tab-label {
-    font-size: 11px;
-    display: block;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  font-size: 11px;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>
