@@ -1,5 +1,6 @@
 <template>
   <div class="homeNewList">
+   
     <ul class="mui-table-view" >
       <li class="mui-table-view-cell mui-media" v-for="item in newslist" :key="item.id">
         <router-link :to="'/home/newinfo/'+ item.id">
@@ -14,10 +15,12 @@
         </router-link>
       </li>   
     </ul>
+    
   </div>
 </template>
 
 <script>
+import scroll from "../../components/scroll/";
 import { Toast } from "mint-ui";
 export default {
   data() {
